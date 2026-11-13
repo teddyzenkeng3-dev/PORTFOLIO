@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teddy Zenkeng Fotsi | Portfolio Étudiant Ingénieur Informatique — CESI Lyon</title>
+    <meta name="description" content="Portfolio de Teddy Zenkeng Fotsi, étudiant ingénieur en informatique à CESI Lyon. Systèmes embarqués, développement logiciel, traitement du signal et bases de données.">
+    
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            cyan: '#06b6d4',
+                            blue: '#3b82f6',
+                            emerald: '#10b981',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Engineering Grid & Scrollbar */
+        .bg-grid-pattern {
+            background-size: 32px 32px;
+            background-image: 
+                linear-gradient(to right, rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+        }
+        html:not(.dark) .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        html:not(.dark) ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+
+        /* Glow Utilities */
+        .glow-cyan {
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.35);
+        }
+        .glow-emerald {
+            box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.35);
+        }
+
+        /* Code syntax styling */
+        .code-block {
+            line-height: 1.55;
+            tab-size: 4;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950 transition-colors duration-300 relative overflow-x-hidden">
+
+    <!-- Background Decorative Grid & Ambient Glows -->
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-cyan-500/10 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+    <div class="fixed bottom-1/4 right-10 w-96 h-96 bg-emerald-500/10 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+    <!-- ==================== HEADER / STICKY NAVIGATION ==================== -->
+    <header id="navbar" class="sticky top-0 z-40 w-full backdrop-blur-md bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#apropos" class="flex items-center gap-3 group focus:outline-none">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-emerald-500 p-[1.5px] shadow-md group-hover:scale-105 transition-transform">
+                    <div class="w-full h-full bg-white dark:bg-slate-950 rounded-[10px] flex items-center justify-center font-mono font-bold text-sm tracking-tighter text-slate-900 dark:text-white">
+                        TZ<span class="text-cyan-500">_</span>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-sm sm:text-base tracking-tight text-slate-900 dark:text-white group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">Teddy Zenkeng Fotsi</span>
+                    <span class="font-mono text-[11px] text-slate-500 dark:text-slate-400">CESI Lyon • Ingénierie Info</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+                <a href="#apropos" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-900/60 transition-all">À propos</a>
+                <a href="#projets" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-900/60 transition-all">Projets</a>
+                <a href="#competences" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-900/60 transition-all">Compétences</a>
+                <a href="#parcours" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-900/60 transition-all">Parcours</a>
+                <a href="#contact" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-900/60 transition-all">Contact</a>
+            </nav>
+
+            <!-- Right Actions: Theme Switcher + CTA + Mobile Menu Btn -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" type="button" aria-label="Basculer le thème clair ou sombre" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100/80 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:border-cyan-500/50 hover:text-cyan-500 transition-all">
+                    <i id="theme-icon-sun" class="fa-solid fa-sun text-amber-400 hidden dark:inline-block text-sm"></i>
+                    <i id="theme-icon-moon" class="fa-solid fa-moon text-slate-700 inline-block dark:hidden text-sm"></i>
+                </button>
+
+                <!-- Quick CV Button (Desktop) -->
+                <button onclick="openCvModal()" class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-mono font-semibold bg-slate-900 dark:bg-slate-800 text-white dark:text-cyan-400 border border-slate-700 dark:border-cyan-500/30 hover:border-cyan-400 transition-all">
+                    <i class="fa-regular fa-file-pdf text-cyan-400"></i>
+                    <span>CV.pdf</span>
+                </button>
+
+                <!-- Mobile Hamburger Button -->
+                <button id="mobile-menu-btn" type="button" aria-label="Ouvrir le menu" class="md:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars text-base"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-lg px-4 pt-2 pb-5 space-y-2">
+            <a href="#apropos" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900">À propos</a>
+            <a href="#projets" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900">Projets Phares</a>
+            <a href="#competences" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900">Compétences</a>
+            <a href="#parcours" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900">Parcours & Expériences</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900">Contact</a>
+            <div class="pt-2">
+                <button onclick="openCvModal()" class="w-full py-2.5 rounded-xl text-xs font-mono font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 font-bold flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-download"></i> Télécharger mon CV (PDF)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="relative z-10">
+
+        <!-- 1. HERO SECTION / À PROPOS -->
+        <section id="apropos" class="pt-10 pb-20 md:pt-20 md:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Intro & CTAs -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <!-- Animated Internship Search Badge -->
+                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/10 border border-emerald-500/30 text-emerald-700 dark:text-emerald-300 text-xs sm:text-xs font-mono">
+                        <span class="relative flex h-2.5 w-2.5 shrink-0">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                        </span>
+                        <span>Recherche de stage • <strong>Mai à Juillet 2027</strong> (Développement Logiciel, Systèmes Embarqués, Cybersécurité)</span>
+                    </div>
+
+                    <!-- Main Name & Subtitle -->
+                    <div class="space-y-3">
+                        <p class="font-mono text-xs sm:text-sm uppercase tracking-widest text-cyan-600 dark:text-cyan-400 font-semibold">
+                            // INGÉNIERIE LOGICIELLE & SYSTÈMES EMBARQUÉS
+                        </p>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+                            Teddy <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-blue-500 to-emerald-400">Zenkeng Fotsi</span>
+                        </h1>
+                        <h2 class="text-xl sm:text-2xl font-semibold text-slate-700 dark:text-slate-300 flex flex-wrap items-center gap-2">
+                            <span>Étudiant Ingénieur en Informatique</span>
+                            <span class="text-cyan-500 font-mono">—</span>
+                            <span class="inline-flex items-center gap-1.5 text-slate-900 dark:text-white bg-slate-200/70 dark:bg-slate-800/80 px-3 py-0.5 rounded-lg text-base sm:text-lg border border-slate-300 dark:border-slate-700">
+                                <i class="fa-solid fa-graduation-cap text-cyan-500 text-sm"></i> CESI Lyon
+                            </span>
+                        </h2>
+                    </div>
+
+                    <!-- Bio / Tagline -->
+                    <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+                        Passionné par l'architecture logicielle, les systèmes embarqués et le traitement de données. Je conçois des solutions techniques alliant <span class="text-slate-900 dark:text-white font-medium underline decoration-cyan-500/50 underline-offset-4">programmation bas niveau</span>, <span class="text-slate-900 dark:text-white font-medium underline decoration-blue-500/50 underline-offset-4">algorithmique</span> et <span class="text-slate-900 dark:text-white font-medium underline decoration-emerald-500/50 underline-offset-4">bases de données</span>.
+                    </p>
+
+                    <!-- Key Highlights Pills -->
+                    <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-200/70 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                            <i class="fa-solid fa-microchip text-cyan-500"></i> C / C++ & Microcontrôleurs
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-200/70 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                            <i class="fa-solid fa-wave-square text-blue-500"></i> Python & Traitement du Signal
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg bg-slate-200/70 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                            <i class="fa-solid fa-database text-emerald-500"></i> SQL & Architecture Merise (3NF)
+                        </span>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center gap-3.5 pt-3">
+                        <a href="#projets" class="px-6 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 hover:from-cyan-400 hover:to-blue-500 transition-all shadow-lg shadow-cyan-500/20 flex items-center gap-2.5">
+                            <span>Découvrir mes projets</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#contact" class="px-5 py-3.5 rounded-xl font-semibold text-sm bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 border border-slate-300 dark:border-slate-700 hover:border-cyan-500 dark:hover:border-cyan-400 transition-all flex items-center gap-2">
+                            <i class="fa-regular fa-paper-plane text-cyan-500"></i>
+                            <span>Me contacter</span>
+                        </a>
+                        <button onclick="openCvModal()" class="px-5 py-3.5 rounded-xl font-mono font-medium text-sm bg-slate-200/80 dark:bg-slate-900/90 text-slate-800 dark:text-emerald-400 border border-slate-300 dark:border-emerald-500/30 hover:border-emerald-500 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-file-arrow-down text-emerald-500"></i>
+                            <span>Télécharger mon CV (PDF)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Engineering Console Card -->
+                <div class="lg:col-span-5">
+                    <div class="rounded-2xl bg-slate-900 dark:bg-slate-900/95 border border-slate-800 shadow-2xl overflow-hidden text-slate-200">
+                        <!-- Terminal Header -->
+                        <div class="px-4 py-3 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-400/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                                <span class="ml-2 font-mono text-xs text-slate-400">teddy@cesi-lyon:~/engineering-stack</span>
+                            </div>
+                            <span class="font-mono text-[11px] px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">SYS_READY</span>
+                        </div>
+
+                        <!-- Terminal Body -->
+                        <div class="p-5 font-mono text-xs sm:text-sm space-y-4">
+                            <div>
+                                <p class="text-slate-400">$ <span class="text-cyan-400">cat</span> profil_ingenieur.json</p>
+                                <div class="mt-2 pl-3 border-l-2 border-slate-800 space-y-1 text-xs">
+                                    <p><span class="text-blue-400">"ecole"</span>: <span class="text-emerald-400">"CESI École d'Ingénieurs (Campus Lyon)"</span>,</p>
+                                    <p><span class="text-blue-400">"cursus"</span>: <span class="text-emerald-400">"Cycle Préparatoire Intégré — Mineure Info"</span>,</p>
+                                    <p><span class="text-blue-400">"localisation"</span>: <span class="text-emerald-400">"Lyon & Vénissieux, France"</span>,</p>
+                                    <p><span class="text-blue-400">"objectif"</span>: <span class="text-amber-300">"Stage Mai - Juillet 2027"</span></p>
+                                </div>
+                            </div>
+
+                            <!-- Live Interactive Subsystem Status -->
+                            <div class="pt-2 border-t border-slate-800/80">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-xs text-slate-400 uppercase tracking-wider">Modules Projets Actifs :</span>
+                                    <span class="text-[11px] text-emerald-400 flex items-center gap-1">
+                                        <i class="fa-solid fa-circle text-[7px] animate-pulse"></i> 3/3 Opérationnels
+                                    </span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2 text-center">
+                                    <a href="#projets" onclick="filterProjects('embarque')" class="p-2.5 rounded-xl bg-slate-950/90 border border-slate-800 hover:border-cyan-500/50 transition-all group">
+                                        <i class="fa-solid fa-satellite-dish text-cyan-400 text-base mb-1 group-hover:scale-110 transition-transform"></i>
+                                        <div class="text-[11px] font-semibold text-white">Embarqué</div>
+                                        <div class="text-[10px] text-slate-400">C / I2C / RTC</div>
+                                    </a>
+                                    <a href="#projets" onclick="filterProjects('signal')" class="p-2.5 rounded-xl bg-slate-950/90 border border-slate-800 hover:border-blue-500/50 transition-all group">
+                                        <i class="fa-solid fa-wave-square text-blue-400 text-base mb-1 group-hover:scale-110 transition-transform"></i>
+                                        <div class="text-[11px] font-semibold text-white">Signal DSP</div>
+                                        <div class="text-[10px] text-slate-400">FFT / FSK / Bode</div>
+                                    </a>
+                                    <a href="#projets" onclick="filterProjects('bdd')" class="p-2.5 rounded-xl bg-slate-950/90 border border-slate-800 hover:border-emerald-500/50 transition-all group">
+                                        <i class="fa-solid fa-server text-emerald-400 text-base mb-1 group-hover:scale-110 transition-transform"></i>
+                                        <div class="text-[11px] font-semibold text-white">Architecture BDD</div>
+                                        <div class="text-[10px] text-slate-400">Merise / MySQL</div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Mini Live Signal Canvas inside Hero -->
+                            <div class="p-3 rounded-xl bg-slate-950 border border-slate-800/90">
+                                <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1.5">
+                                    <span><i class="fa-solid fa-chart-line text-cyan-400 mr-1"></i> Télémétrie Temps Réel (Simulée)</span>
+                                    <span id="hero-telemetry-readout" class="text-cyan-400">FSK: 1200Hz | SNR: +18.4dB</span>
+                                </div>
+                                <canvas id="hero-oscilloscope" class="w-full h-14 rounded bg-slate-950 block"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== 2. SECTION PROJETS PHARES ==================== -->
+        <section id="projets" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200/80 dark:border-slate-800/80">
+            
+            <!-- Section Header + Filter Buttons -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cyan-600 dark:text-cyan-400 font-semibold mb-2">
+                        <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+                        <span>Réalisations Techniques & Ingénierie</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                        Projets Phares
+                    </h2>
+                    <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-2xl text-sm sm:text-base">
+                        Chaque projet associe modélisation théorique, implémentation matérielle ou logicielle et validation expérimentale. Cliquez sur <span class="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-800 text-cyan-600 dark:text-cyan-400">Détails & Code</span> pour explorer l'architecture.
+                    </p>
+                </div>
+
+                <!-- Category Filter Pills -->
+                <div class="flex flex-wrap gap-2 bg-slate-200/70 dark:bg-slate-900/90 p-1.5 rounded-xl border border-slate-300/80 dark:border-slate-800 self-start">
+                    <button onclick="filterProjects('all')" data-filter="all" class="project-filter-btn active-filter px-3.5 py-2 rounded-lg text-xs font-mono font-semibold transition-all bg-cyan-500 text-slate-950 shadow-sm">
+                        Tous (3)
+                    </button>
+                    <button onclick="filterProjects('embarque')" data-filter="embarque" class="project-filter-btn px-3.5 py-2 rounded-lg text-xs font-mono font-semibold transition-all text-slate-700 dark:text-slate-300 hover:text-cyan-500">
+                        Embarqué
+                    </button>
+                    <button onclick="filterProjects('signal')" data-filter="signal" class="project-filter-btn px-3.5 py-2 rounded-lg text-xs font-mono font-semibold transition-all text-slate-700 dark:text-slate-300 hover:text-cyan-500">
+                        Signal & Algo
+                    </button>
+                    <button onclick="filterProjects('bdd')" data-filter="bdd" class="project-filter-btn px-3.5 py-2 rounded-lg text-xs font-mono font-semibold transition-all text-slate-700 dark:text-slate-300 hover:text-cyan-500">
+                        Base de données
+                    </button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="projects-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <!-- ==================== PROJET 1 : SYSTÈME EMBARQUÉ MÉTÉO ==================== -->
+                <article data-category="embarque" class="project-card group rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 transition-all duration-300 shadow-lg hover:shadow-cyan-500/10 flex flex-col overflow-hidden">
+                    
+                    <!-- Interactive Embedded Hardware SVG Preview -->
+                    <div class="relative bg-slate-950 p-4 border-b border-slate-800 h-56 flex flex-col justify-between overflow-hidden">
+                        <div class="flex items-center justify-between z-10">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+                                <i class="fa-solid fa-microchip mr-1"></i> Systèmes Embarqués & IoT
+                            </span>
+                            <!-- Interactive Mode Switcher on Card -->
+                            <button onclick="cycleWeatherMode()" title="Simuler un changement de mode du système embarqué" class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 flex items-center gap-1.5 transition-colors">
+                                <span id="mcu-led" class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                <span id="mcu-mode-label">MODE: STANDARD</span>
+                                <i class="fa-solid fa-rotate text-[10px] text-cyan-400 ml-0.5"></i>
+                            </button>
+                        </div>
+
+                        <!-- Custom SVG Architecture Diagram: MCU + I2C Sensors + SD + RTC -->
+                        <svg viewBox="0 0 380 130" class="w-full h-32 my-auto select-none">
+                            <!-- PCB Traces -->
+                            <path d="M 95 35 L 145 35 M 95 65 L 145 65 M 95 95 L 145 95" stroke="#06b6d4" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.7"/>
+                            <path d="M 235 45 L 285 45 M 235 85 L 285 85" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.7"/>
+                            
+                            <!-- Left: Environmental Sensors (I2C / ADC) -->
+                            <g transform="translate(12, 18)">
+                                <rect width="83" height="26" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+                                <text x="8" y="16" fill="#38bdf8" font-family="JetBrains Mono" font-size="8.5" font-weight="600">BME280 (I2C)</text>
+                            </g>
+                            <g transform="translate(12, 50)">
+                                <rect width="83" height="26" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+                                <text x="8" y="16" fill="#38bdf8" font-family="JetBrains Mono" font-size="8.5" font-weight="600">LUX / ADC</text>
+                            </g>
+                            <g transform="translate(12, 82)">
+                                <rect width="83" height="26" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+                                <text x="8" y="16" fill="#f59e0b" font-family="JetBrains Mono" font-size="8.5" font-weight="600">ISR Boutons</text>
+                            </g>
+
+                            <!-- Center: Microcontroller Unit -->
+                            <g transform="translate(145, 20)">
+                                <rect width="90" height="88" rx="8" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+                                <!-- IC Pins -->
+                                <line x1="-5" y1="15" x2="0" y2="15" stroke="#94a3b8" stroke-width="2"/>
+                                <line x1="-5" y1="44" x2="0" y2="44" stroke="#94a3b8" stroke-width="2"/>
+                                <line x1="-5" y1="73" x2="0" y2="73" stroke="#94a3b8" stroke-width="2"/>
+                                <line x1="90" y1="25" x2="95" y2="25" stroke="#94a3b8" stroke-width="2"/>
+                                <line x1="90" y1="65" x2="95" y2="65" stroke="#94a3b8" stroke-width="2"/>
+                                <text x="45" y="34" text-anchor="middle" fill="#ffffff" font-family="JetBrains Mono" font-size="10" font-weight="700">MCU 8/32-bit</text>
+                                <text x="45" y="50" text-anchor="middle" fill="#06b6d4" font-family="JetBrains Mono" font-size="7.5">C / ASM Firmware</text>
+                                <rect x="14" y="60" width="62" height="16" rx="3" fill="#020617" stroke="#334155"/>
+                                <text id="svg-mcu-readout" x="45" y="71" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono" font-size="7.5">21.4°C | 1013hPa</text>
+                            </g>
+
+                            <!-- Right: Storage SD & RTC Clock -->
+                            <g transform="translate(285, 26)">
+                                <rect width="82" height="32" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+                                <text x="10" y="15" fill="#10b981" font-family="JetBrains Mono" font-size="8.5" font-weight="700">SD Card (SPI)</text>
+                                <text x="10" y="25" fill="#94a3b8" font-family="JetBrains Mono" font-size="7">FAT32 Logging</text>
+                            </g>
+                            <g transform="translate(285, 68)">
+                                <rect width="82" height="32" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+                                <text x="10" y="15" fill="#10b981" font-family="JetBrains Mono" font-size="8.5" font-weight="700">Horloge RTC</text>
+                                <text x="10" y="25" fill="#94a3b8" font-family="JetBrains Mono" font-size="7">DS1307 (I2C)</text>
+                            </g>
+                        </svg>
+
+                        <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
+                            <span><i class="fa-solid fa-memory text-cyan-400 mr-1"></i>SRAM Optimisée</span>
+                            <span>4 Modes d'acquisition</span>
+                        </div>
+                    </div>
+
+                    <!-- Card Content -->
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
+                                Worldwide Weather Watcher — Système Embarqué Météo
+                            </h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Conception d'une station météo embarquée autonome pour la collecte et la surveillance de paramètres environnementaux en temps réel.
+                            </p>
+
+                            <!-- Key Technical Achievements List -->
+                            <ul class="space-y-2 pt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-cyan-500 mt-1 text-xs"></i>
+                                    <span><strong>Programmation bas niveau</strong> sur microcontrôleur et interfaçage capteurs (température, pression, humidité, luminosité).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-cyan-500 mt-1 text-xs"></i>
+                                    <span><strong>Machine à états (4 modes) :</strong> standard, économique, maintenance et configuration.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-cyan-500 mt-1 text-xs"></i>
+                                    <span><strong>Acquisition & Persistance :</strong> stockage sur carte SD, horodatage RTC, gestion des interruptions matérielles et optimisation mémoire.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Stack Badges & Modal Trigger -->
+                        <div class="space-y-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+                            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-cyan-300">C / C++</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-cyan-300">Assembleur</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Microcontrôleur</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">I2C / SPI / UART</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Électronique</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Fusion 360</span>
+                            </div>
+
+                            <button onclick="openProjectModal('weather')" class="w-full py-2.5 px-4 rounded-xl font-mono text-xs font-semibold bg-slate-100 dark:bg-slate-800/90 hover:bg-cyan-500 dark:hover:bg-cyan-500 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-slate-950 transition-all flex items-center justify-center gap-2 border border-slate-300/80 dark:border-slate-700">
+                                <i class="fa-solid fa-code"></i>
+                                <span>Voir l'architecture & extrait de code C</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ==================== PROJET 2 : TRAITEMENT DU SIGNAL ACOUSTIQUE ==================== -->
+                <article data-category="signal" class="project-card group rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-blue-500/60 dark:hover:border-blue-500/60 transition-all duration-300 shadow-lg hover:shadow-blue-500/10 flex flex-col overflow-hidden">
+                    
+                    <!-- Interactive Signal Processing Canvas Preview -->
+                    <div class="relative bg-slate-950 p-4 border-b border-slate-800 h-56 flex flex-col justify-between overflow-hidden">
+                        <div class="flex items-center justify-between z-10">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-blue-500/15 text-blue-300 border border-blue-500/30">
+                                <i class="fa-solid fa-wave-square mr-1"></i> Traitement du Signal & Python
+                            </span>
+                            <button onclick="toggleSignalFilterView()" class="px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-900 hover:bg-slate-800 text-blue-300 border border-slate-700 flex items-center gap-1.5 transition-colors">
+                                <i class="fa-solid fa-sliders text-[10px]"></i>
+                                <span id="dsp-view-label">Vue: Filtrage FSK</span>
+                            </button>
+                        </div>
+
+                        <!-- Live Canvas for FSK / FFT Demonstration -->
+                        <div class="my-auto bg-slate-900/60 rounded-lg p-2 border border-slate-800/80">
+                            <canvas id="card-signal-canvas" class="w-full h-24 block"></canvas>
+                        </div>
+
+                        <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
+                            <span>Trame : <strong class="text-emerald-400">01101001 [CRC OK]</strong></span>
+                            <span>FFT & Diagramme de Bode</span>
+                        </div>
+                    </div>
+
+                    <!-- Card Content -->
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
+                                Transmission & Décodage d'un Signal Acoustique Binaire
+                            </h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Développement d'une chaîne complète d'émission, de filtrage numérique et de démodulation pour transmettre et décoder des trames binaires via un signal sonore.
+                            </p>
+
+                            <!-- Key Technical Achievements List -->
+                            <ul class="space-y-2 pt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-blue-500 mt-1 text-xs"></i>
+                                    <span><strong>Modulation & Démodulation (FSK) :</strong> encodage fréquentiel et échantillonnage haute précision.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-blue-500 mt-1 text-xs"></i>
+                                    <span><strong>Analyse spectrale FFT & Filtrage :</strong> dimensionnement de filtres numériques (passe-bande / passe-bas) et tracé des diagrammes de Bode (gain et phase).</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-blue-500 mt-1 text-xs"></i>
+                                    <span><strong>Intégrité des données :</strong> reconstitution de la trame binaire et contrôle d'erreur (CRC / bit de parité).</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Stack Badges & Modal Trigger -->
+                        <div class="space-y-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+                            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-blue-300">Python</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-blue-300">NumPy</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-blue-300">SciPy</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Matplotlib</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">MATLAB</span>
+                            </div>
+
+                            <button onclick="openProjectModal('signal')" class="w-full py-2.5 px-4 rounded-xl font-mono text-xs font-semibold bg-slate-100 dark:bg-slate-800/90 hover:bg-blue-500 dark:hover:bg-blue-500 text-slate-800 dark:text-slate-200 hover:text-white dark:hover:text-slate-950 transition-all flex items-center justify-center gap-2 border border-slate-300/80 dark:border-slate-700">
+                                <i class="fa-solid fa-code"></i>
+                                <span>Voir la chaîne DSP & extrait Python</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ==================== PROJET 3 : CESI CLIMAT BASE DE DONNÉES ==================== -->
+                <article data-category="bdd" class="project-card group rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/60 dark:hover:border-emerald-500/60 transition-all duration-300 shadow-lg hover:shadow-emerald-500/10 flex flex-col overflow-hidden">
+                    
+                    <!-- Interactive Relational Schema (MCD/MLD) SVG Preview -->
+                    <div class="relative bg-slate-950 p-4 border-b border-slate-800 h-56 flex flex-col justify-between overflow-hidden">
+                        <div class="flex items-center justify-between z-10">
+                            <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                                <i class="fa-solid fa-database mr-1"></i> Architecture & Base de Données
+                            </span>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-900 text-emerald-400 border border-slate-800">
+                                Normalisation 3NF
+                            </span>
+                        </div>
+
+                        <!-- Relational Schema Diagram (SVG) -->
+                        <svg viewBox="0 0 380 125" class="w-full h-32 my-auto select-none">
+                            <!-- Relational Links (1:N Cardinalities) -->
+                            <path d="M 110 38 L 150 38 L 150 62 L 165 62" stroke="#10b981" stroke-width="1.5" fill="none"/>
+                            <path d="M 110 92 L 150 92 L 150 68 L 165 68" stroke="#10b981" stroke-width="1.5" fill="none"/>
+                            <path d="M 265 65 L 295 65" stroke="#06b6d4" stroke-width="1.5" fill="none"/>
+                            
+                            <!-- Cardinality labels -->
+                            <text x="115" y="33" fill="#94a3b8" font-family="JetBrains Mono" font-size="7">1,N</text>
+                            <text x="148" y="56" fill="#94a3b8" font-family="JetBrains Mono" font-size="7">1,1</text>
+                            <text x="268" y="59" fill="#94a3b8" font-family="JetBrains Mono" font-size="7">1,N</text>
+
+                            <!-- Table 1: REGION -->
+                            <g transform="translate(10, 14)">
+                                <rect width="100" height="44" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+                                <rect width="100" height="14" rx="4" fill="#064e3b"/>
+                                <text x="8" y="10" fill="#a7f3d0" font-family="JetBrains Mono" font-size="7.5" font-weight="700">STATION_METEO</text>
+                                <text x="8" y="25" fill="#fbbf24" font-family="JetBrains Mono" font-size="7">PK id_station</text>
+                                <text x="8" y="36" fill="#cbd5e1" font-family="JetBrains Mono" font-size="7">FK id_region, alt</text>
+                            </g>
+
+                            <!-- Table 2: CAPTEUR -->
+                            <g transform="translate(10, 68)">
+                                <rect width="100" height="44" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+                                <rect width="100" height="14" rx="4" fill="#1e3a8a"/>
+                                <text x="8" y="10" fill="#93c5fd" font-family="JetBrains Mono" font-size="7.5" font-weight="700">CAPTEUR_TYPE</text>
+                                <text x="8" y="25" fill="#fbbf24" font-family="JetBrains Mono" font-size="7">PK id_capteur</text>
+                                <text x="8" y="36" fill="#cbd5e1" font-family="JetBrains Mono" font-size="7">unite, precision</text>
+                            </g>
+
+                            <!-- Central Fact Table: RELEVE_CLIMATIQUE -->
+                            <g transform="translate(165, 28)">
+                                <rect width="100" height="70" rx="5" fill="#0f172a" stroke="#10b981" stroke-width="1.6"/>
+                                <rect width="100" height="16" rx="4" fill="#059669"/>
+                                <text x="8" y="11" fill="#ffffff" font-family="JetBrains Mono" font-size="7.5" font-weight="700">RELEVE_CLIMAT</text>
+                                <text x="8" y="27" fill="#fbbf24" font-family="JetBrains Mono" font-size="7">PK id_releve</text>
+                                <text x="8" y="38" fill="#38bdf8" font-family="JetBrains Mono" font-size="7">FK id_station</text>
+                                <text x="8" y="49" fill="#38bdf8" font-family="JetBrains Mono" font-size="7">FK id_capteur</text>
+                                <text x="8" y="60" fill="#cbd5e1" font-family="JetBrains Mono" font-size="7">IDX date_mesure</text>
+                            </g>
+
+                            <!-- Table 4: ALERTE / VUE -->
+                            <g transform="translate(295, 38)">
+                                <rect width="76" height="50" rx="4" fill="#0f172a" stroke="#06b6d4" stroke-width="1.2"/>
+                                <rect width="76" height="14" rx="3" fill="#164e63"/>
+                                <text x="6" y="10" fill="#67e8f9" font-family="JetBrains Mono" font-size="7.5" font-weight="700">INDICATEUR</text>
+                                <text x="6" y="25" fill="#fbbf24" font-family="JetBrains Mono" font-size="7">PK id_indic</text>
+                                <text x="6" y="36" fill="#cbd5e1" font-family="JetBrains Mono" font-size="7">moy_glissante</text>
+                            </g>
+                        </svg>
+
+                        <div class="flex items-center justify-between text-[11px] font-mono text-slate-400">
+                            <span><i class="fa-solid fa-bolt text-emerald-400 mr-1"></i>Index B-Tree optimisés</span>
+                            <span>MCD → MLD → MPD</span>
+                        </div>
+                    </div>
+
+                    <!-- Card Content -->
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+                        <div class="space-y-3">
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
+                                CESI Climat — Conception et Optimisation de Base de Données
+                            </h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Modélisation et implémentation d'une base de données relationnelle destinée à centraliser et exploiter des relevés et indicateurs climatiques à grande échelle.
+                            </p>
+
+                            <!-- Key Technical Achievements List -->
+                            <ul class="space-y-2 pt-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-500 mt-1 text-xs"></i>
+                                    <span><strong>Méthodologie Merise complète :</strong> dictionnaire de données, MCD, MLD et MPD normalisés en 3NF sans redondance.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-500 mt-1 text-xs"></i>
+                                    <span><strong>Implémentation MySQL :</strong> contraintes d'intégrité référentielle, peuplement et indexation pour gros volumes.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-emerald-500 mt-1 text-xs"></i>
+                                    <span><strong>Requêtes SQL analytiques :</strong> jointures multiples, agrégations temporelles, vues matérialisées et optimisation des performances.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Stack Badges & Modal Trigger -->
+                        <div class="space-y-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+                            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-emerald-300">SQL</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-emerald-300">MySQL</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">MySQL Workbench</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Merise (MCD/MLD)</span>
+                            </div>
+
+                            <button onclick="openProjectModal('bdd')" class="w-full py-2.5 px-4 rounded-xl font-mono text-xs font-semibold bg-slate-100 dark:bg-slate-800/90 hover:bg-emerald-500 dark:hover:bg-emerald-500 text-slate-800 dark:text-slate-200 hover:text-slate-950 dark:hover:text-slate-950 transition-all flex items-center justify-center gap-2 border border-slate-300/80 dark:border-slate-700">
+                                <i class="fa-solid fa-database"></i>
+                                <span>Voir le modèle 3NF & requêtes SQL</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ==================== 3. SECTION COMPÉTENCES TECHNIQUES ==================== -->
+        <section id="competences" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200/80 dark:border-slate-800/80">
+            
+            <div class="mb-12">
+                <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cyan-600 dark:text-cyan-400 font-semibold mb-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>Stack & Savoir-Faire</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                    Compétences Techniques
+                </h2>
+                <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-2xl text-sm sm:text-base">
+                    Compétences acquises et mises en pratique à travers les projets d'ingénierie à CESI Lyon et mes développements personnels.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Développement & Programmation -->
+                <div class="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 p-6 sm:p-7 shadow-lg relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-500 mb-5">
+                        <i class="fa-solid fa-terminal text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                        Développement & Programmation
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-5">
+                        Du code bas niveau proche du matériel jusqu'aux scripts scientifiques et interfaces web modernes.
+                    </p>
+
+                    <div class="space-y-3">
+                        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800/90 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-c text-cyan-500 font-mono font-bold"></i>
+                                <div>
+                                    <div class="font-mono text-sm font-semibold text-slate-900 dark:text-white">Langage C / C++</div>
+                                    <div class="text-xs text-slate-500 dark:text-slate-400">Pointeurs, gestion mémoire, firmware embarqué</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800/90 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-brands fa-python text-blue-500 text-lg"></i>
+                                <div>
+                                    <div class="font-mono text-sm font-semibold text-slate-900 dark:text-white">Python</div>
+                                    <div class="text-xs text-slate-500 dark:text-slate-400">Algorithmique, calcul scientifique & automatisation</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800/90 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-database text-emerald-500"></i>
+                                <div>
+                                    <div class="font-mono text-sm font-semibold text-slate-900 dark:text-white">SQL</div>
+                                    <div class="text-xs text-slate-500 dark:text-slate-400">DDL/DML, jointures complexes, vues, indexation</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800/90 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-microchip text-amber-500"></i>
+                                <div>
+                                    <div class="font-mono text-sm font-semibold text-slate-900 dark:text-white">Assembleur</div>
+                                    <div class="text-xs text-slate-500 dark:text-slate-400">Registres, interruptions, architecture processeur</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800/90 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-brands fa-js text-yellow-400"></i>
+                                <div>
+                                    <div class="font-mono text-sm font-semibold text-slate-900 dark:text-white">HTML5 / CSS3 / JavaScript</div>
+                                    <div class="text-xs text-slate-500 dark:text-slate-400">Interfaces responsives, DOM, Tailwind CSS</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Systèmes Embarqués & Ingénierie -->
+                <div class="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 p-6 sm:p-7 shadow-lg relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-500 mb-5">
+                        <i class="fa-solid fa-microchip text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                        Systèmes Embarqués & Ingénierie
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-5">
+                        Conception de systèmes matériels/logiciels, chaîne d'acquisition et traitement numérique des signaux.
+                    </p>
+
+                    <div class="space-y-3">
+                        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800/90">
+                            <div class="font-mono text-sm font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+                                Programmation Microcontrôleurs
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                                Bus I2C, SPI, UART, convertisseurs ADC, timers, watchdog et gestion d'énergie.
+                            </p>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800/90">
+                            <div class="font-mono text-sm font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                                Électronique Analogique & Numérique
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                                Lecture de schémas, conditionnement de capteurs, logique combinatoire et séquentielle.
+                            </p>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800/90">
+                            <div class="font-mono text-sm font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+                                Traitement du Signal (FFT, Filtrage, Bode)
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                                Théorème de Shannon, analyse spectrale FFT, filtres RII/RIF, modulation FSK et réponse fréquentielle.
+                            </p>
+                        </div>
+
+                        <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200/80 dark:border-slate-800/90">
+                            <div class="font-mono text-sm font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                CAO 3D (Fusion 360)
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                                Modélisation de boîtiers techniques et intégration mécanique de composants électroniques.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Données, Outils & Environnement -->
+                <div class="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 p-6 sm:p-7 shadow-lg relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 mb-5">
+                        <i class="fa-solid fa-layer-group text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                        Données, Outils & Environnement
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-5">
+                        Méthodologies de conception, bibliothèques scientifiques et environnement de travail collaboratif.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-2 rounded-xl font-mono text-xs bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-project-diagram text-emerald-500"></i> Modélisation Merise (MCD/MLD)
+                        </span>
+                        <span class="px-3 py-2 rounded-xl font-mono text-xs bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-database text-cyan-500"></i> MySQL Workbench
+                        </span>
+                        <span class="px-3 py-2 rounded-xl font-mono text-xs bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-chart-area text-blue-500"></i> NumPy / SciPy / Matplotlib
+                        </span>
+                        <span class="px-3 py-2 rounded-xl font-mono text-xs bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                            <i class="fa-solid fa-square-root-variable text-amber-500"></i> MATLAB
+                        </span>
+                        <span class="px-3 py-2 rounded-xl font-mono text-xs bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                            <i class="fa-brands fa-git-alt text-orange-500"></i> Git & GitHub
+                        </span>
+                        <span class="px-3 py-2 rounded-xl font-mono text-xs bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                            <i class="fa-brands fa-linux text-slate-700 dark:text-slate-300"></i> Linux (Bash / CLI)
+                        </span>
+                    </div>
+
+                    <!-- Engineering Methodology Box -->
+                    <div class="p-4 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200/60 dark:from-slate-950 dark:to-slate-900 border border-slate-300/70 dark:border-slate-800">
+                        <div class="font-mono text-xs uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-bold mb-1">
+                            Méthode de travail (PBL)
+                        </div>
+                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Habitué à la pédagogie active par projets de <strong>CESI</strong> : analyse du besoin, rédaction de cahier des charges, travail en équipe Agile, revues de code et documentation technique.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== 4. SECTION PARCOURS & EXPÉRIENCES ==================== -->
+        <section id="parcours" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200/80 dark:border-slate-800/80">
+            
+            <div class="mb-12">
+                <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cyan-600 dark:text-cyan-400 font-semibold mb-2">
+                    <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+                    <span>Formation Académique & Expériences</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                    Parcours & Expériences
+                </h2>
+            </div>
+
+            <!-- Vertical Timeline -->
+            <div class="relative border-l-2 border-cyan-500/40 dark:border-cyan-500/30 ml-3 sm:ml-6 pl-6 sm:pl-10 space-y-10">
+                
+                <!-- Item 1: CESI Lyon -->
+                <div class="relative group">
+                    <span class="absolute -left-[33px] sm:-left-[49px] top-1.5 w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20"></span>
+                    <div class="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 p-6 shadow-md hover:border-cyan-500/50 transition-all">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="font-mono text-xs font-semibold px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
+                                2025 – Présent
+                            </span>
+                            <span class="font-mono text-xs text-slate-500 dark:text-slate-400">
+                                <i class="fa-solid fa-location-dot text-cyan-500 mr-1"></i>Lyon, France
+                            </span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+                            Cycle Préparatoire Intégré (Mineure Informatique) — CESI École d'Ingénieurs
+                        </h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Formation d'ingénieur structurée autour de l'<strong>apprentissage par problèmes et par projets (PBL)</strong>. Réalisation de projets techniques complets en équipe : conception de systèmes embarqués (C/Microcontrôleur), traitement numérique du signal (Python/MATLAB), architecture de bases de données relationnelles (Merise/MySQL) et réseaux.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-4 font-mono text-[11px]">
+                            <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Systèmes Embarqués</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Algorithmique & Programmation</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Bases de Données</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Traitement du Signal</span>
+                            <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">Réseaux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2: Enseignant particulier -->
+                <div class="relative group">
+                    <span class="absolute -left-[33px] sm:-left-[49px] top-1.5 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-blue-500/20"></span>
+                    <div class="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 p-6 shadow-md hover:border-blue-500/50 transition-all">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="font-mono text-xs font-semibold px-3 py-1 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                                2026
+                            </span>
+                            <span class="font-mono text-xs text-slate-500 dark:text-slate-400">
+                                Pédagogie & Communication scientifique
+                            </span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+                            Enseignant particulier en Mathématiques & Physique
+                        </h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Accompagnement régulier d'élèves de collège et lycée. Vulgarisation de concepts scientifiques abstraits, structuration de méthodes de résolution de problèmes et suivi pédagogique personnalisé.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Item 3: Amazon -->
+                <div class="relative group">
+                    <span class="absolute -left-[33px] sm:-left-[49px] top-1.5 w-4 h-4 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></span>
+                    <div class="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 p-6 shadow-md hover:border-emerald-500/50 transition-all">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="font-mono text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                                Été 2026
+                            </span>
+                            <span class="font-mono text-xs text-slate-500 dark:text-slate-400">
+                                Logistique & Opérations
+                            </span>
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+                            Préparateur de commandes — Amazon
+                        </h3>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Respect strict des standards de qualité et de sécurité, gestion des cadences logistiques soutenues, fiabilité opérationnelle et travail en équipe dans un environnement industriel exigeant.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== 5. SECTION CONTACT & FOOTER ==================== -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-slate-200/80 dark:border-slate-800/80">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left Column: Direct Contact Info -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cyan-600 dark:text-cyan-400 font-semibold mb-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span>Opportunités & Échanges</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                            Me Contacter
+                        </h2>
+                        <p class="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                            Actuellement à la recherche d'un <strong>stage technique de Mai à Juillet 2027</strong> dans les domaines du développement logiciel, des systèmes embarqués ou de la cybersécurité. N'hésitez pas à me contacter !
+                        </p>
+                    </div>
+
+                    <!-- Contact Cards -->
+                    <div class="space-y-3.5">
+                        <!-- Location -->
+                        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 text-cyan-500 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-mono text-slate-500 dark:text-slate-400">Localisation</div>
+                                <div class="text-sm font-semibold text-slate-900 dark:text-white">Lyon & Vénissieux, France (Mobilité)</div>
+                            </div>
+                        </div>
+
+                        <!-- Email with Copy Button -->
+                        <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-4 min-w-0">
+                                <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center shrink-0">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div class="truncate">
+                                    <div class="text-xs font-mono text-slate-500 dark:text-slate-400">Email direct</div>
+                                    <a id="email-text" href="mailto:teddy.zenkengfotsi@viacesi.fr" class="text-sm font-mono font-semibold text-slate-900 dark:text-white hover:text-cyan-500 truncate block">
+                                        teddy.zenkengfotsi@viacesi.fr
+                                    </a>
+                                </div>
+                            </div>
+                            <button onclick="copyEmail()" class="px-3 py-1.5 rounded-lg text-xs font-mono bg-slate-100 dark:bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-slate-700 dark:text-slate-300 transition-colors shrink-0">
+                                <i class="fa-regular fa-copy mr-1"></i><span id="copy-btn-label">Copier</span>
+                            </button>
+                        </div>
+
+                        <!-- Social Profiles -->
+                        <div class="grid grid-cols-2 gap-3 pt-1">
+                            <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/60 flex items-center gap-3 transition-all group">
+                                <i class="fa-brands fa-github text-xl text-slate-800 dark:text-white group-hover:text-cyan-400"></i>
+                                <div>
+                                    <div class="text-xs font-bold text-slate-900 dark:text-white">GitHub</div>
+                                    <div class="text-[11px] font-mono text-slate-500">Dépôts & Code</div>
+                                </div>
+                            </a>
+                            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500/60 flex items-center gap-3 transition-all group">
+                                <i class="fa-brands fa-linkedin text-xl text-blue-600 dark:text-blue-400"></i>
+                                <div>
+                                    <div class="text-xs font-bold text-slate-900 dark:text-white">LinkedIn</div>
+                                    <div class="text-[11px] font-mono text-slate-500">Réseau Pro</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Contact Form -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" onsubmit="handleContactSubmit(event)" class="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-xl space-y-5">
+                        <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4">
+                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Envoyer un message</h3>
+                            <span class="font-mono text-xs text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Réponse rapide
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label for="sender-name" class="block text-xs font-mono uppercase text-slate-600 dark:text-slate-400 mb-2">Nom / Entreprise *</label>
+                                <input id="sender-name" type="text" required placeholder="Ex: Marie Laurent — Thales" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500 transition-colors">
+                            </div>
+                            <div>
+                                <label for="sender-email" class="block text-xs font-mono uppercase text-slate-600 dark:text-slate-400 mb-2">Adresse Email *</label>
+                                <input id="sender-email" type="email" required placeholder="nom@entreprise.com" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500 transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="sender-subject" class="block text-xs font-mono uppercase text-slate-600 dark:text-slate-400 mb-2">Objet de la demande *</label>
+                            <select id="sender-subject" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500 transition-colors">
+                                <option value="Stage Mai-Juillet 2027 (Développement / Embarqué / Cyber)">Proposition de Stage • Mai à Juillet 2027</option>
+                                <option value="Échange sur vos projets techniques">Question sur vos projets (Embarqué, Signal, BDD)</option>
+                                <option value="Autre prise de contact">Autre opportunité / Échange réseau</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="sender-message" class="block text-xs font-mono uppercase text-slate-600 dark:text-slate-400 mb-2">Message *</label>
+                            <textarea id="sender-message" rows="4" required placeholder="Bonjour Teddy, nous avons consulté votre portfolio et souhaiterions échanger au sujet d'un stage..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-800 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500 transition-colors"></textarea>
+                        </div>
+
+                        <!-- Form Feedback Banner (Hidden by default) -->
+                        <div id="form-feedback" class="hidden p-4 rounded-xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-700 dark:text-emerald-300 text-xs sm:text-sm flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-500 text-base mt-0.5"></i>
+                            <div>
+                                <strong class="block font-semibold">Message préparé avec succès !</strong>
+                                <span id="form-feedback-text">Merci pour votre intérêt. Votre message a bien été pris en compte.</span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 shadow-lg shadow-cyan-500/20 transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Envoyer le message</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="border-t border-slate-200 dark:border-slate-800/90 bg-white/60 dark:bg-slate-950/90 py-8 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500 dark:text-slate-400">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+                <span>© 2026 Teddy Zenkeng Fotsi — Étudiant Ingénieur CESI Lyon</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#apropos" class="hover:text-cyan-500 transition-colors">Haut de page ↑</a>
+                <span>•</span>
+                <span>Lyon & Vénissieux, France</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== TECHNICAL PROJECT MODAL ==================== -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-sm">
+        <div class="relative w-full max-w-4xl max-h-[90vh] rounded-2xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shadow-2xl flex flex-col overflow-hidden">
+            
+            <!-- Modal Header -->
+            <div class="px-6 py-4 bg-slate-100 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <span id="modal-badge" class="px-2.5 py-1 rounded text-xs font-mono font-semibold bg-cyan-500/15 text-cyan-500 border border-cyan-500/30">Embarqué</span>
+                    <h3 id="modal-title" class="text-base sm:text-lg font-bold text-slate-900 dark:text-white truncate">Détails Techniques</h3>
+                </div>
+                <button onclick="closeProjectModal()" aria-label="Fermer la fenêtre" class="w-8 h-8 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-rose-500 flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Scrollable Content -->
+            <div id="modal-body" class="p-6 overflow-y-auto space-y-6 text-sm text-slate-700 dark:text-slate-300">
+                <!-- Populated dynamically via JS -->
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="px-6 py-3.5 bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <span class="font-mono text-xs text-slate-500">Projet d'ingénierie • CESI Lyon</span>
+                <button onclick="closeProjectModal()" class="px-4 py-2 rounded-xl font-mono text-xs font-semibold bg-slate-800 text-white hover:bg-cyan-500 hover:text-slate-950 transition-colors">
+                    Fermer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== INTERACTIVE CV MODAL (PRINT / PDF READY) ==================== -->
+    <div id="cv-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-slate-950/80 backdrop-blur-sm">
+        <div class="relative w-full max-w-3xl max-h-[90vh] rounded-2xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 shadow-2xl flex flex-col overflow-hidden">
+            
+            <!-- Modal Header -->
+            <div class="px-6 py-4 bg-slate-100 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-file-pdf text-emerald-500 text-lg"></i>
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white font-mono">CV_Teddy_Zenkeng_Fotsi.pdf</h3>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="window.print()" class="px-3.5 py-1.5 rounded-lg font-mono text-xs font-semibold bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-print"></i> Imprimer / Enregistrer en PDF
+                    </button>
+                    <button onclick="closeCvModal()" class="w-8 h-8 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-rose-500 flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Printable CV Summary Sheet -->
+            <div class="p-6 sm:p-8 overflow-y-auto space-y-5 text-slate-800 dark:text-slate-200 text-sm">
+                <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                        <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Teddy ZENKENG FOTSI</h2>
+                        <p class="text-cyan-600 dark:text-cyan-400 font-semibold">Étudiant Ingénieur en Informatique — CESI Lyon</p>
+                        <p class="text-xs font-mono text-emerald-600 dark:text-emerald-400 mt-1">Recherche de stage : Mai à Juillet 2027 (Développement Logiciel, Systèmes Embarqués, Cybersécurité)</p>
+                    </div>
+                    <div class="text-xs font-mono text-slate-500 dark:text-slate-400 space-y-1 sm:text-right">
+                        <div>Lyon & Vénissieux, France</div>
+                        <div>teddy.zenkengfotsi@viacesi.fr</div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-mono text-xs uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-bold mb-2">Formation</h4>
+                    <p class="font-semibold text-slate-900 dark:text-white">2025 – Présent : Cycle Préparatoire Intégré (Spécialité Informatique) — CESI École d'Ingénieurs, Lyon</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Pédagogie par problèmes et par projets : Systèmes embarqués, Algorithmique, Bases de données, Traitement du signal, Réseaux.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-mono text-xs uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-bold mb-2">Projets Techniques Majeurs</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm list-disc list-inside">
+                        <li><strong>Worldwide Weather Watcher (Embarqué) :</strong> Station météo autonome en C/C++ et Assembleur sur microcontrôleur, capteurs I2C/SPI, 4 modes de fonctionnement, stockage carte SD, horloge RTC et gestion des interruptions.</li>
+                        <li><strong>Signal Acoustique Binaire (Traitement du Signal) :</strong> Chaîne d'émission/réception FSK en Python (NumPy, SciPy, Matplotlib) & MATLAB, analyse spectrale FFT, filtrage numérique, diagrammes de Bode et contrôle d'intégrité.</li>
+                        <li><strong>CESI Climat (Base de Données) :</strong> Modélisation Merise complète (MCD, MLD, MPD en 3NF) sous MySQL Workbench, création du schéma SQL, jeu de données et requêtes analytiques optimisées.</li>
+                    </ul>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="font-mono text-xs uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-bold mb-1.5">Compétences Techniques</h4>
+                        <p class="text-xs leading-relaxed">
+                            <strong>Langages :</strong> C, Python, SQL, Assembleur, HTML5/CSS3/JS<br>
+                            <strong>Ingénierie :</strong> Microcontrôleurs, Électronique, FFT/Filtrage/Bode, Fusion 360<br>
+                            <strong>Outils :</strong> MySQL Workbench, Merise, Git/GitHub, Linux, MATLAB
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-mono text-xs uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-bold mb-1.5">Expériences</h4>
+                        <p class="text-xs leading-relaxed">
+                            <strong>2026 :</strong> Enseignant particulier en Mathématiques & Physique (Collège/Lycée)<br>
+                            <strong>Été 2026 :</strong> Préparateur de commandes — Amazon (Rigueur, cadence logistique, esprit d'équipe)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+    <script>
+        // 1. THEME SWITCHER (DARK / LIGHT MODE)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlEl = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlEl.classList.toggle('dark');
+        });
+
+        // 2. MOBILE MENU TOGGLE
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuIcon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+        // 3. PROJECT CATEGORY FILTERING
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.project-filter-btn');
+
+            buttons.forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.className = 'project-filter-btn px-3.5 py-2 rounded-lg text-xs font-mono font-semibold transition-all bg-cyan-500 text-slate-950 shadow-sm';
+                } else {
+                    btn.className = 'project-filter-btn px-3.5 py-2 rounded-lg text-xs font-mono font-semibold transition-all text-slate-700 dark:text-slate-300 hover:text-cyan-500';
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // 4. INTERACTIVE WEATHER WATCHER MODE SIMULATOR ON CARD 1
+        const weatherModes = [
+            { name: 'MODE: STANDARD', color: 'bg-emerald-400', readout: '21.4°C | 1013hPa' },
+            { name: 'MODE: ÉCONOMIQUE', color: 'bg-blue-400', readout: 'LP_SLEEP | GPSx0.5' },
+            { name: 'MODE: MAINTENANCE', color: 'bg-amber-400', readout: 'SD_UNMOUNT | DIAG' },
+            { name: 'MODE: CONFIG UART', color: 'bg-yellow-300', readout: 'CFG_TIMEOUT: 30m' }
+        ];
+        let currentWeatherModeIndex = 0;
+
+        function cycleWeatherMode() {
+            currentWeatherModeIndex = (currentWeatherModeIndex + 1) % weatherModes.length;
+            const m = weatherModes[currentWeatherModeIndex];
+            const led = document.getElementById('mcu-led');
+            const label = document.getElementById('mcu-mode-label');
+            const svgReadout = document.getElementById('svg-mcu-readout');
+
+            led.className = `w-2 h-2 rounded-full ${m.color}`;
+            label.textContent = m.name;
+            svgReadout.textContent = m.readout;
+        }
+
+        // 5. LIVE SIGNAL OSCILLOSCOPE CANVASES (HERO + PROJECT 2 CARD)
+        let dspCleanMode = true;
+        function toggleSignalFilterView() {
+            dspCleanMode = !dspCleanMode;
+            const label = document.getElementById('dsp-view-label');
+            label.textContent = dspCleanMode ? 'Vue: Filtrage FSK' : 'Vue: Signal Bruité';
+        }
+
+        function initOscilloscopes() {
+            const heroCanvas = document.getElementById('hero-oscilloscope');
+            const cardCanvas = document.getElementById('card-signal-canvas');
+            if (!heroCanvas || !cardCanvas) return;
+
+            const heroCtx = heroCanvas.getContext('2d');
+            const cardCtx = cardCanvas.getContext('2d');
+            let phase = 0;
+
+            function resizeCanvases() {
+                heroCanvas.width = heroCanvas.clientWidth || 300;
+                heroCanvas.height = heroCanvas.clientHeight || 56;
+                cardCanvas.width = cardCanvas.clientWidth || 320;
+                cardCanvas.height = cardCanvas.clientHeight || 96;
+            }
+            resizeCanvases();
+            window.addEventListener('resize', resizeCanvases);
+
+            function drawWaveforms() {
+                phase += 0.06;
+
+                // Draw Hero Telemetry Waveform
+                const hw = heroCanvas.width;
+                const hh = heroCanvas.height;
+                heroCtx.clearRect(0, 0, hw, hh);
+                heroCtx.strokeStyle = '#06b6d4';
+                heroCtx.lineWidth = 1.8;
+                heroCtx.beginPath();
+                for (let x = 0; x < hw; x++) {
+                    const freq = (Math.floor((x + phase * 15) / 45) % 2 === 0) ? 0.08 : 0.18;
+                    const y = hh / 2 + Math.sin(x * freq - phase) * (hh * 0.32);
+                    if (x === 0) heroCtx.moveTo(x, y);
+                    else heroCtx.lineTo(x, y);
+                }
+                heroCtx.stroke();
+
+                // Draw Project 2 Card FSK Waveform
+                const cw = cardCanvas.width;
+                const ch = cardCanvas.height;
+                cardCtx.clearRect(0, 0, cw, ch);
+
+                // Subtle center axis
+                cardCtx.strokeStyle = 'rgba(148, 163, 184, 0.15)';
+                cardCtx.lineWidth = 1;
+                cardCtx.beginPath();
+                cardCtx.moveTo(0, ch / 2);
+                cardCtx.lineTo(cw, ch / 2);
+                cardCtx.stroke();
+
+                // Digital Bit Frame envelope on top
+                cardCtx.strokeStyle = 'rgba(16, 185, 129, 0.5)';
+                cardCtx.beginPath();
+                for (let x = 0; x < cw; x++) {
+                    const bit = Math.floor((x + phase * 12) / 50) % 2;
+                    const yBit = bit ? 14 : 26;
+                    if (x === 0) cardCtx.moveTo(x, yBit);
+                    else cardCtx.lineTo(x, yBit);
+                }
+                cardCtx.stroke();
+
+                // FSK Carrier Signal (Clean vs Noisy)
+                cardCtx.strokeStyle = dspCleanMode ? '#3b82f6' : '#f43f5e';
+                cardCtx.lineWidth = 2;
+                cardCtx.beginPath();
+                for (let x = 0; x < cw; x++) {
+                    const bit = Math.floor((x + phase * 12) / 50) % 2;
+                    const f = bit ? 0.22 : 0.09;
+                    const noise = dspCleanMode ? 0 : (Math.sin(x * 0.9 + phase * 3) * 7 + (Math.random() - 0.5) * 8);
+                    const y = (ch * 0.62) + Math.sin(x * f - phase * 1.4) * 20 + noise;
+                    if (x === 0) cardCtx.moveTo(x, y);
+                    else cardCtx.lineTo(x, y);
+                }
+                cardCtx.stroke();
+
+                requestAnimationFrame(drawWaveforms);
+            }
+            drawWaveforms();
+        }
+
+        // 6. TECHNICAL DETAILS & CODE MODALS FOR THE 3 PROJECTS
+        const projectDetailsData = {
+            weather: {
+                badge: 'Systèmes Embarqués & IoT',
+                title: 'Worldwide Weather Watcher — Architecture & Code Embarqué',
+                html: `
+                    <div class="space-y-4">
+                        <p class="leading-relaxed">
+                            Ce système embarqué a été conçu pour assurer une surveillance météorologique autonome (notamment en environnement maritime ou isolé) avec de fortes contraintes de mémoire SRAM et d'autonomie énergétique.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                                <strong class="text-cyan-600 dark:text-cyan-400 font-mono block mb-1">1. Gestion des 4 Modes & Interruptions</strong>
+                                Basculement matériel par interruptions (ISR) sur boutons poussoirs avec temporisation : <em>Standard</em>, <em>Économique</em> (espacement des mesures), <em>Maintenance</em> (lecture SD sécurisée) et <em>Configuration</em> (console série UART).
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                                <strong class="text-emerald-600 dark:text-emerald-400 font-mono block mb-1">2. Acquisition & Stockage FAT32</strong>
+                                Interfaçage I2C (capteurs environnementaux + module RTC DS1307 pour l'horodatage) et bus SPI pour l'écriture structurée de fichiers journaux sur carte SD avec rotation automatique.
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between font-mono text-xs text-slate-500 mb-1.5">
+                                <span>Extrait : Machine à états & Routine d'interruption (C / Firmware)</span>
+                                <span class="text-cyan-500">weather_station_fsm.c</span>
+                            </div>
+                            <pre class="code-block p-4 rounded-xl bg-slate-950 text-slate-200 font-mono text-xs overflow-x-auto border border-slate-800"><code>typedef enum {
+    MODE_STANDARD = 0,
+    MODE_ECONOMIQUE,
+    MODE_MAINTENANCE,
+    MODE_CONFIGURATION
+} SystemMode_t;
+
+volatile SystemMode_t current_mode = MODE_STANDARD;
+volatile uint32_t btn_press_timestamp = 0;
+
+// Routine d'interruption matérielle (ISR) - Gestion des boutons
+ISR(INT0_vect) {
+    uint32_t now = millis();
+    if ((now - btn_press_timestamp) >= DEBOUNCE_DELAY_MS) {
+        if (current_mode == MODE_STANDARD) {
+            current_mode = MODE_ECONOMIQUE;
+            set_rgb_led(0, 0, 255); // LED Bleue : Mode Économique
+        } else if (current_mode == MODE_ECONOMIQUE) {
+            current_mode = MODE_MAINTENANCE;
+            set_rgb_led(255, 140, 0); // LED Orange : Accès Carte SD sûr
+        }
+        btn_press_timestamp = now;
+    }
+}
+
+void acquire_and_log_sensors(SensorData_t *data) {
+    read_rtc_timestamp(&data->timestamp);   // Horodatage I2C
+    read_bme280_i2c(&data->temp, &data->pressure, &data->humidity);
+    data->luminosity = read_adc_channel(LUX_SENSOR_PIN);
+    if (current_mode != MODE_MAINTENANCE) {
+        sd_append_csv_record("LOG_METEO.CSV", data); // Bus SPI
+    }
+}</code></pre>
+                        </div>
+                    </div>
+                `
+            },
+            signal: {
+                badge: 'Traitement du Signal & Python',
+                title: 'Transmission & Décodage Acoustique Binaire — Pipeline DSP',
+                html: `
+                    <div class="space-y-4">
+                        <p class="leading-relaxed">
+                            L'objectif de ce projet est de transmettre un message numérique sous forme d'onde sonore modulée (FSK), puis de le filtrer et de le démoduler malgré le bruit ambiant du canal acoustique.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                                <strong class="text-blue-600 dark:text-blue-400 font-mono block mb-1">1. Analyse Spectrale FFT & Bode</strong>
+                                Identification des fréquences porteuses $f_0$ et $f_1$ par Transformée de Fourier Rapide (FFT), dimensionnement des filtres passe-bande de Butterworth et validation sur diagrammes de Bode (gain en dB et phase).
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                                <strong class="text-emerald-600 dark:text-emerald-400 font-mono block mb-1">2. Démodulation & Intégrité</strong>
+                                Détection d'enveloppe après filtrage, seuillage adaptatif pour reconstruire les bits, détection du fanion de synchronisation et vérification du code de redondance cyclique (CRC / parité).
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between font-mono text-xs text-slate-500 mb-1.5">
+                                <span>Extrait : Filtrage Passe-Bande & Démodulation FSK (Python / SciPy)</span>
+                                <span class="text-blue-400">fsk_decoder_dsp.py</span>
+                            </div>
+                            <pre class="code-block p-4 rounded-xl bg-slate-950 text-slate-200 font-mono text-xs overflow-x-auto border border-slate-800"><code>import numpy as np
+from scipy.signal import butter, filtfilt, freqz
+
+def design_bandpass_filter(lowcut, highcut, fs, order=4):
+    """Dimensionne un filtre numérique passe-bande de Butterworth."""
+    nyq = 0.5 * fs
+    b, a = butter(order, [lowcut / nyq, highcut / nyq], btype='band')
+    return b, a
+
+def demodulate_fsk_frame(signal_rx, fs, f_bit1, bw, samples_per_bit):
+    """Isole la fréquence du bit '1', extrait l'enveloppe et décode la trame."""
+    b, a = design_bandpass_filter(f_bit1 - bw, f_bit1 + bw, fs, order=4)
+    filtered_sig = filtfilt(b, a, signal_rx)
+    
+    # Énergie moyenne par période symbole
+    num_bits = len(filtered_sig) // samples_per_bit
+    bits_decoded = []
+    threshold = np.mean(filtered_sig ** 2) * 0.85
+    
+    for k in range(num_bits):
+        chunk = filtered_sig[k * samples_per_bit : (k + 1) * samples_per_bit]
+        energy = np.mean(chunk ** 2)
+        bits_decoded.append(1 if energy > threshold else 0)
+        
+    return np.array(bits_decoded, dtype=int)</code></pre>
+                        </div>
+                    </div>
+                `
+            },
+            bdd: {
+                badge: 'Architecture & Base de Données',
+                title: 'CESI Climat — Modélisation 3NF & Requêtes SQL Analytiques',
+                html: `
+                    <div class="space-y-4">
+                        <p class="leading-relaxed">
+                            Conception d'un entrepôt relationnel structuré pour stocker des millions de relevés climatiques multi-capteurs tout en garantissant l'intégrité référentielle et des temps de réponse rapides.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                            <div class="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                                <strong class="text-emerald-600 dark:text-emerald-400 font-mono block mb-1">1. Modélisation Merise (MCD/MLD 3NF)</strong>
+                                Élimination des dépendances transitives, séparation des entités topographiques (<em>Région</em>, <em>Station</em>), matérielles (<em>Capteur</em>, <em>Unité</em>) et temporelles (<em>Relevé</em>).
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-slate-100 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                                <strong class="text-cyan-600 dark:text-cyan-400 font-mono block mb-1">2. Optimisation & Indexation MySQL</strong>
+                                Mise en place d'index composites sur <code>(id_station, date_mesure)</code> et création de vues analytiques pour l'étude des anomalies thermiques.
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between font-mono text-xs text-slate-500 mb-1.5">
+                                <span>Extrait : Schéma Relationnel & Requête Analytique (MySQL)</span>
+                                <span class="text-emerald-400">cesi_climat_analytics.sql</span>
+                            </div>
+                            <pre class="code-block p-4 rounded-xl bg-slate-950 text-slate-200 font-mono text-xs overflow-x-auto border border-slate-800"><code>-- Index composite pour accélérer les agrégations temporelles par station
+CREATE INDEX idx_releve_station_date 
+ON releve_climatique (id_station, date_mesure);
+
+-- Analyse des stations dépassant la moyenne régionale de +2.5°C
+SELECT 
+    r.nom_region,
+    s.code_station,
+    s.altitude_m,
+    ROUND(AVG(rc.valeur_mesuree), 2) AS temp_moyenne_station,
+    COUNT(rc.id_releve) AS nb_mesures_valides
+FROM releve_climatique rc
+INNER JOIN station_meteo s ON rc.id_station = s.id_station
+INNER JOIN region r ON s.id_region = r.id_region
+INNER JOIN capteur_type c ON rc.id_capteur = c.id_capteur
+WHERE c.code_grandeur = 'TEMP_AIR'
+  AND rc.qualite_signal = 'VALIDE'
+  AND rc.date_mesure >= DATE_SUB(CURDATE(), INTERVAL 12 MONTH)
+GROUP BY r.nom_region, s.code_station, s.altitude_m
+HAVING AVG(rc.valeur_mesuree) > (
+    SELECT AVG(rc2.valeur_mesuree) + 2.5
+    FROM releve_climatique rc2
+    INNER JOIN station_meteo s2 ON rc2.id_station = s2.id_station
+    WHERE s2.id_region = r.id_region
+)
+ORDER BY temp_moyenne_station DESC;</code></pre>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function openProjectModal(projectKey) {
+            const modal = document.getElementById('project-modal');
+            const data = projectDetailsData[projectKey];
+            if (!data) return;
+
+            document.getElementById('modal-badge').textContent = data.badge;
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-body').innerHTML = data.html;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // 7. CV MODAL FUNCTIONS
+        function openCvModal() {
+            const modal = document.getElementById('cv-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeCvModal() {
+            const modal = document.getElementById('cv-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Close modals on Escape key or backdrop click
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeProjectModal();
+                closeCvModal();
+            }
+        });
+
+        // 8. CLIPBOARD COPY EMAIL (Compatible with iframe restrictions)
+        function copyEmail() {
+            const email = 'teddy.zenkengfotsi@viacesi.fr';
+            const tempInput = document.createElement('textarea');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                const label = document.getElementById('copy-btn-label');
+                label.textContent = 'Copié !';
+                setTimeout(() => { label.textContent = 'Copier'; }, 2500);
+            } catch (err) {
+                console.error('Erreur lors de la copie', err);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        // 9. INTERACTIVE CONTACT FORM SIMULATION
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('sender-name').value.trim();
+            const subject = document.getElementById('sender-subject').value;
+            const feedbackBox = document.getElementById('form-feedback');
+            const feedbackText = document.getElementById('form-feedback-text');
+
+            feedbackText.textContent = `Merci ${name}. Votre message concernant "${subject}" est prêt. Vous pouvez également me joindre directement à teddy.zenkengfotsi@viacesi.fr.`;
+            feedbackBox.classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+        }
+
+        // Initialize animations on window load
+        window.onload = function () {
+            initOscilloscopes();
+        };
+    </script>
+</body>
+</html>
